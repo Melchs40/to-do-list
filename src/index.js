@@ -2,10 +2,12 @@ import createProject from "./project-button";
 
 document.title = "To-Do List";
 
-export let testArray = [];
+//empty array to store created projects
+export let projectArray = [];
 
 const content = document.getElementById("content");
 
+//creates the header for the to-do list
 const header = document.createElement("div");
 header.setAttribute("id", "header");
 content.appendChild(header);
@@ -15,6 +17,7 @@ content.appendChild(header);
     headerTitle.innerHTML = "To-Do List"
     header.appendChild(headerTitle);
 
+//creates the side panel that stores the home and projects section of the to-do list
 const sidePanel = document.createElement("div");
 sidePanel.setAttribute("id", "side-panel");
 content.appendChild(sidePanel);
@@ -48,8 +51,9 @@ content.appendChild(sidePanel);
         important.setAttribute("id", "important");
         important.innerHTML = "Important";
         home.appendChild(important);
-
-    const projects = document.createElement("div");
+    
+    //needed in project-button.js to appends divs/buttons to project section
+    export const projects = document.createElement("div");
     projects.setAttribute("id", "projects-section");
     projects.classList.add("side-panel-section");
     sidePanel.appendChild(projects);
@@ -59,13 +63,15 @@ content.appendChild(sidePanel);
         projectsTitle.innerHTML = "Projects";
         projects.appendChild(projectsTitle);
 
+        //needed in project-button.js for event listener to add project
         export const projectButton = document.createElement("button");
         projectButton.setAttribute("id", "project-button");
         projectButton.classList.add("button");
         projectButton.innerHTML = "+ Add Project";
         projects.appendChild(projectButton);
 
-export const mainPanel = document.createElement("div");
+//creates the main panel that will show the tasks of a specific project
+const mainPanel = document.createElement("div");
 mainPanel.setAttribute("id", "main-panel")
 content.appendChild(mainPanel);
 
@@ -77,12 +83,14 @@ content.appendChild(mainPanel);
     taskButton.setAttribute("id", "task-button");
     taskButton.classList.add("button");
     taskButton.innerHTML = "+ Add task";
-    projects.appendChild(taskButton);
+    mainPanel.appendChild(taskButton);
 
+//creates the footer for the to-do list
 const footer = document.createElement("footer");
 footer.innerHTML = "Copyright © Melchs40's Computer Whiz Coding 2023";
 content.appendChild(footer);
 
+//gives the project buttons their functionality from project-button.js
 projectButton.onclick = () => {
     createProject()
 };

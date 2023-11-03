@@ -1,23 +1,34 @@
-import { projectButton, mainPanel, testArray } from ".";
+import { projectButton, projects, projectArray } from ".";
 
 export default function createProject() {
 
 
 function addProject() {
-    let newDiv = document.createElement("button");
-    testArray.push("newDiv");
-    console.log(testArray);
-    newDiv.classList.add("test-button");
-    newDiv.innerHTML = (testArray.length);
-    for (let i = 0; i < testArray.length; i++) {
-        newDiv.setAttribute("id", i);
-    }
-    mainPanel.appendChild(newDiv);
-    newDiv.onclick = () => {
-        deleteProject(newDiv);
+
+    const projectDiv = document.createElement("div");
+    projectDiv.classList.add("project-div");
+
+    const projectName = document.createElement("button");
+    projectName.classList.add("project")
+    projectName.innerHTML = (projectArray.length);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("project-delete-button")
+    deleteButton.innerHTML = "X";
+
+    projectArray.push("projectName");
+    
+    for (let i = 0; i < projectArray.length; i++) {
+        projectDiv.setAttribute("id", i);
     }
     
-    
+    projects.appendChild(projectDiv);
+    projectDiv.appendChild(projectName);
+    projectDiv.appendChild(deleteButton);
+
+    deleteButton.onclick = () => {
+        deleteProject(projectDiv);
+    } 
 }
 
 projectButton.addEventListener("click", addProject());
@@ -25,10 +36,9 @@ projectButton.addEventListener("click", addProject());
 }
 
 export function deleteProject(button) {
-    testArray.splice(button.id, 1);
+    projectArray.splice(button.id, 1);
     button.parentNode.removeChild(button);
-    for (let i = 0; i < testArray.length; i++) {
-        document.getElementsByClassName("test-button")[i].setAttribute("id", i);
+    for (let i = 0; i < projectArray.length; i++) {
+        document.getElementsByClassName("project-div")[i].setAttribute("id", i);
     }
-    console.log(testArray);
 }
