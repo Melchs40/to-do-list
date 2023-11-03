@@ -1,4 +1,4 @@
-import createProject from "./project-button";
+import createProject from "./add-project";
 
 document.title = "To-Do List";
 
@@ -52,7 +52,7 @@ content.appendChild(sidePanel);
         important.innerHTML = "Important";
         home.appendChild(important);
     
-    //needed in project-button.js to appends divs/buttons to project section
+    //needed in add-project.js to append divs/buttons to project section
     export const projects = document.createElement("div");
     projects.setAttribute("id", "projects-section");
     projects.classList.add("side-panel-section");
@@ -63,7 +63,7 @@ content.appendChild(sidePanel);
         projectsTitle.innerHTML = "Projects";
         projects.appendChild(projectsTitle);
 
-        //needed in project-button.js for event listener to add project
+        //needed in add-project.js for event listener to add project
         export const projectButton = document.createElement("button");
         projectButton.setAttribute("id", "project-button");
         projectButton.classList.add("button");
