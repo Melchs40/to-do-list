@@ -4,6 +4,7 @@ document.title = "To-Do List";
 
 //empty array to store created projects
 export let projectArray = [];
+export let tasksArray = [];
 
 const content = document.getElementById("content");
 
@@ -79,8 +80,12 @@ content.appendChild(mainPanel);
     mainPanelTitle.setAttribute("id", "main-panel-title");
     mainPanel.appendChild(mainPanelTitle);
 
-    const taskButton = document.createElement("button");
-    taskButton.setAttribute("id", "task-button");
+    export const mainPanelDiv = document.createElement("h1");
+    mainPanelDiv.setAttribute("id", "main-panel-div");
+    mainPanel.appendChild(mainPanelDiv);
+
+    export const taskButton = document.createElement("button");
+    taskButton.setAttribute("class", "task-button");
     taskButton.classList.add("button");
     taskButton.innerHTML = "+ Add task";
     mainPanel.appendChild(taskButton);
