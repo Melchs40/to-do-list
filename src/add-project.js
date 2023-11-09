@@ -17,10 +17,10 @@ function addProject() {
     taskDiv.classList.add("hidden");
     taskDiv.classList.add("task-list");
 
-
     projectName.onclick = () => {
         openProject(this);
     }
+    
 
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("project-delete-button")
@@ -71,7 +71,7 @@ function deleteProject(button) {
     for (let i = 0; i < projectArray.length; i++) {
         document.getElementsByClassName("project-div")[i].setAttribute("id", ("project-" + i));
         document.getElementsByClassName("task-list")[i].setAttribute("id", ("task-list-" + i));
-        document.querySelector(".task-button").setAttribute("id", "");
-        document.querySelector(".task-button").innerHTML = "+ Add Task";
+        // document.querySelector(".task-button").setAttribute("id", "");
+        // document.querySelector(".task-button").innerHTML = "+ Add Task";
     }
 }

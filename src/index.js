@@ -1,10 +1,9 @@
-import createProject from "./add-project";
+import createProject from "./create-project";
 
 document.title = "To-Do List";
 
-//empty array to store created projects
-export let projectArray = [];
-export let tasksArray = [];
+export const projectArray = [];
+export const tasksArray = [];
 
 const content = document.getElementById("content");
 
@@ -71,6 +70,10 @@ content.appendChild(sidePanel);
         projectButton.innerHTML = "+ Add Project";
         projects.appendChild(projectButton);
 
+        export const projectDiv = document.createElement("div");
+        projectDiv.setAttribute("id", "project-container");
+        projects.appendChild(projectDiv);
+
 //creates the main panel that will show the tasks of a specific project
 const mainPanel = document.createElement("div");
 mainPanel.setAttribute("id", "main-panel")
@@ -84,11 +87,7 @@ content.appendChild(mainPanel);
     mainPanelDiv.setAttribute("id", "main-panel-div");
     mainPanel.appendChild(mainPanelDiv);
 
-    export const taskButton = document.createElement("button");
-    taskButton.setAttribute("class", "task-button");
-    taskButton.classList.add("button");
-    taskButton.innerHTML = "+ Add task";
-    mainPanel.appendChild(taskButton);
+    
 
 //creates the footer for the to-do list
 const footer = document.createElement("footer");
@@ -97,5 +96,5 @@ content.appendChild(footer);
 
 //gives the project buttons their functionality from project-button.js
 projectButton.onclick = () => {
-    createProject()
+    createProject();
 };
