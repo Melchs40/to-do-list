@@ -1,4 +1,5 @@
 import { mainPanelDiv } from ".";
+import createTask from "./create-task";
 
 export default function openProject(project) {
 
@@ -13,6 +14,10 @@ export default function openProject(project) {
     taskButton.classList.add("button");
     taskButton.innerHTML = "+ Add task";
     mainPanelDiv.appendChild(taskButton);
+
+    taskButton.onclick = () => {
+      createTask(project.taskList);
+    }
 
     console.log(project.taskList);
 

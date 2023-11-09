@@ -1,4 +1,5 @@
 import { projectArray, projectDiv } from ".";
+import openProject from "./project-button";
 
 export default function pushProjects(project) {
     const createdProject = document.createElement("div");
@@ -7,7 +8,7 @@ export default function pushProjects(project) {
     projectName.setAttribute("id", project.id);
     projectName.innerHTML = project.title;
     projectName.onclick = () => {
-        console.log(project.id);
+        openProject(project);
     }
 
     const deleteButton = document.createElement("button");
