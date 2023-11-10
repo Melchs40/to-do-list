@@ -7,6 +7,14 @@ class Project {
         this.title = title;
         this.taskList = [];
         this.id = Math.floor(Math.random() * Math.pow(1000, 2));
+        this.projectArr = [];
+    }
+
+    createArray() {
+        this.projectArr.push(this.title);
+        this.projectArr.push(this.taskList);
+        this.projectArr.push(this.id);
+        return this.projectArr;
     }
 }
 
@@ -34,9 +42,10 @@ export default function createProject() {
     
     formButton.onclick = () => {
         let project = new Project(formInput.value);
-        projectArray.push(project);
+        let projectArr = project.createArray();
+        projectArray.push(projectArr);
         pushProjects(project);
-        console.log(projectArray);
+        // console.log(projectArray);
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);

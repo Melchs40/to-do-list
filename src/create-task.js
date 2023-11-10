@@ -1,4 +1,5 @@
-import { tasksArray } from ".";
+import { projectArray, mainPanelDiv } from ".";
+import { taskButton } from "./project-button";
 
 class Task {
     constructor(title, description, dueDate, priority) {
@@ -66,8 +67,10 @@ export default function createTask(project) {
     formButton.onclick = () => {
         let task = new Task(titleInput.value, descriptInput.value, dateInput.value, priorityInput.checked);
         let taskArray = task.createArray();
+        let taskDiv = document.createElement("div");
+        taskDiv.innerHTML = `${task.title} ${task.description} ${task.dueDate}`;
         project.push(taskArray);
-        console.log(project);
+        mainPanelDiv.insertBefore(taskDiv, taskButton);
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
