@@ -16,8 +16,12 @@ export default function pushProjects(project) {
     deleteButton.innerHTML = "X";
 
     deleteButton.onclick = () => {
+        
+
         for (let i = 0; i < projectArray.length; i++) {
-            if (projectArray[i].id === project.id) {
+            let outerArray = projectArray[i];
+            let innerArray = outerArray[2];
+            if (innerArray === project.id) {
                 projectArray.splice(i, 1);
             }
         }

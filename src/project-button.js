@@ -12,11 +12,45 @@ export default function openProject(project) {
     };
 
     for (let i = 0; i < project.projectArr[1].length; i++) {
-      const task = document.createElement("div");
+
+      let taskDiv = document.createElement("div");
+      taskDiv.classList.add("task-div");
+
       const outerArray = project.projectArr[1];
       const innerArray = outerArray[i];
-      task.innerHTML = innerArray[0];
-      mainPanelDiv.appendChild(task)
+
+      let checkDiv = document.createElement("input");
+      checkDiv.classList.add("task-check");
+      checkDiv.setAttribute("type", "checkbox");
+      checkDiv.checked = innerArray[4];
+
+      let titleDiv = document.createElement("div");
+      titleDiv.classList.add("title-div");
+      titleDiv.innerHTML = innerArray[0];
+
+      let dueDateDiv = document.createElement("div");
+      dueDateDiv.classList.add("due-date-div");
+      dueDateDiv.innerHTML = innerArray[2];
+
+      let priorityDiv = document.createElement("div");
+      priorityDiv.classList.add("priority-div");
+      priorityDiv.innerHTML = innerArray[3];
+
+      let editButton = document.createElement("button");
+      editButton.classList.add("edit-task-button");
+      editButton.innerHTML = "Edit Task";
+
+      let deleteTask = document.createElement("button");
+      deleteTask.classList.add("delete-task-button");
+      deleteTask.innerHTML = "X";
+
+      mainPanelDiv.appendChild(taskDiv)
+      taskDiv.appendChild(checkDiv);
+      taskDiv.appendChild(titleDiv);
+      taskDiv.appendChild(dueDateDiv); 
+      taskDiv.appendChild(priorityDiv);
+      taskDiv.appendChild(editButton);
+      taskDiv.appendChild(deleteTask);
     }
 
     taskButton.setAttribute("class", "task-button");

@@ -74,6 +74,51 @@ content.appendChild(sidePanel);
         projectDiv.setAttribute("id", "project-container");
         projects.appendChild(projectDiv);
 
+        // const testButton1 = document.createElement("button");
+        // testButton1.classList.add("test-button");
+        // testButton1.innerHTML = "Test 1";
+        // projects.appendChild(testButton1);
+        // testButton1.onclick = () => {
+        //     makeActive(testButton1);
+        //     checkActive();
+        // }
+
+
+        // const testButton2 = document.createElement("button");
+        // testButton2.classList.add("test-button");
+        // testButton2.innerHTML = "Test 2";
+        // projects.appendChild(testButton2);
+        // testButton2.onclick = () => {
+        //     makeActive(testButton2);
+        //     checkActive();
+        // }
+
+        // function checkActive() {
+        //     if (testButton1.classList.contains("active")) {
+        //     console.log("Test button 1 is active and two is off");
+        //     } else if (testButton2.classList.contains("active")) {
+        //         console.log("Test button 2 is active and one is off");
+        //     } else {
+        //         console.log("They're both off");
+        //     }
+        // }
+
+        // checkActive();
+
+
+
+        // function makeActive(thing) {
+        //     let buttons = document.getElementsByClassName("test-button");
+
+        //     for (let i = 0; i < buttons.length; i++) {
+        //         if (buttons[i].classList.contains("active")) {
+        //             buttons[i].classList.remove("active");
+        //         } else { }
+        //     }
+
+        //     thing.classList.add("active");
+        // }
+
 //creates the main panel that will show the tasks of a specific project
 const mainPanel = document.createElement("div");
 mainPanel.setAttribute("id", "main-panel")

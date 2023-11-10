@@ -8,6 +8,7 @@ class Task {
         this.dueDate = dueDate;
         this.priority = priority;
         this.taskArray = [];
+        this.checked = true;
     }
 
     createArray() {
@@ -15,6 +16,7 @@ class Task {
         this.taskArray.push(this.description);
         this.taskArray.push(this.dueDate);
         this.taskArray.push(this.priority);
+        this.taskArray.push(this.checked);
         return this.taskArray;
     }
 }
@@ -67,13 +69,50 @@ export default function createTask(project) {
     formButton.onclick = () => {
         let task = new Task(titleInput.value, descriptInput.value, dateInput.value, priorityInput.checked);
         let taskArray = task.createArray();
+
         let taskDiv = document.createElement("div");
-        taskDiv.innerHTML = `${task.title} ${task.description} ${task.dueDate}`;
+        taskDiv.classList.add("task-div");
+
+        let checkDiv = document.createElement("input");
+        checkDiv.classList.add("task-check");
+        checkDiv.setAttribute("type", "checkbox");
+        checkDiv.checked = task.checked;
+
+        let titleDiv = document.createElement("div");
+        titleDiv.classList.add("title-div");
+        titleDiv.innerHTML = task.title;
+
+        let dueDateDiv = document.createElement("div");
+        dueDateDiv.classList.add("due-date-div");
+        dueDateDiv.innerHTML = task.dueDate;
+
+        let priorityDiv = document.createElement("div");
+        priorityDiv.classList.add("priority-div");
+        priorityDiv.innerHTML = task.priority
+
+        let editButton = document.createElement("button");
+        editButton.classList.add("edit-task-button");
+        editButton.innerHTML = "Edit Task";
+
+        let deleteTask = document.createElement("button");
+        deleteTask.classList.add("delete-task-button");
+        deleteTask.innerHTML = "X";
+
         project.push(taskArray);
+
         mainPanelDiv.insertBefore(taskDiv, taskButton);
+        taskDiv.appendChild(checkDiv);
+        taskDiv.appendChild(titleDiv);
+        taskDiv.appendChild(dueDateDiv); 
+        taskDiv.appendChild(priorityDiv);
+        taskDiv.appendChild(editButton);
+        taskDiv.appendChild(deleteTask);
+
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
+
+        console.log(projectArray);
     }
 
     const formCancel = document.createElement("button");
