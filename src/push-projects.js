@@ -1,6 +1,7 @@
 import { projectArray, projectDiv } from ".";
 import openProject from "./project-button";
 
+//adds the created project into the HTML
 export default function pushProjects(project) {
     const createdProject = document.createElement("div");
     createdProject.classList.add("project");
@@ -11,6 +12,7 @@ export default function pushProjects(project) {
         openProject(project);
     }
 
+    //adds delete button to the project div
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("project-delete-button")
     deleteButton.innerHTML = "X";

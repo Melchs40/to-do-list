@@ -1,10 +1,13 @@
 import { mainPanelDiv, projectArray } from ".";
 import createTask from "./create-task";
 
+//creates the task button
 export const taskButton = document.createElement("button");
 
+//adds the ability for each project to be opened and display the tasks added to said project
 export default function openProject(project) {
 
+    //removes all information from main panel
     if (mainPanelDiv.hasChildNodes()) {
         while (mainPanelDiv.firstChild) {
           mainPanelDiv.removeChild(mainPanelDiv.firstChild);

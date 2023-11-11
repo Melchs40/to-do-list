@@ -1,16 +1,19 @@
 import { projectArray, mainPanelDiv } from ".";
 import { taskButton } from "./project-button";
+import editTask from "./edit-task";
 
-class Task {
+//creates a class of task
+export class Task {
     constructor(title, description, dueDate, priority) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
         this.taskArray = [];
-        this.checked = true;
+        this.checked = false;
     }
 
+    //creates an array out of task constructors
     createArray() {
         this.taskArray.push(this.title);
         this.taskArray.push(this.description);
@@ -21,7 +24,9 @@ class Task {
     }
 }
 
+//creates a dialog box and the form within it to add a new task to the current project
 export default function createTask(project) {
+
     const dialogBox = document.createElement("dialog");
     document.getElementById("content").appendChild(dialogBox);
     dialogBox.open = true;
@@ -93,6 +98,13 @@ export default function createTask(project) {
         let editButton = document.createElement("button");
         editButton.classList.add("edit-task-button");
         editButton.innerHTML = "Edit Task";
+        
+        editButton.onclick = () => {
+            titleDiv.classList.add("active");
+            dueDateDiv.classList.add("active");
+            priorityDiv.classList.add("active");
+            editTask(task);
+        }
 
         let deleteTask = document.createElement("button");
         deleteTask.classList.add("delete-task-button");
@@ -112,7 +124,7 @@ export default function createTask(project) {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
 
-        console.log(projectArray);
+        console.log(task);
     }
 
     const formCancel = document.createElement("button");

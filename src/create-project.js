@@ -2,14 +2,14 @@ import { projectArray } from ".";
 import pushProjects from "./push-projects";
 
 //creates class of Project
-class Project {
+export class Project {
     constructor(title) {
         this.title = title;
         this.taskList = [];
         this.id = Math.floor(Math.random() * Math.pow(1000, 2));
         this.projectArr = [];
     }
-
+    //creates an array out of project constructors
     createArray() {
         this.projectArr.push(this.title);
         this.projectArr.push(this.taskList);
@@ -20,6 +20,7 @@ class Project {
 
 export default function createProject() {
 
+    //creates the dialog box and the form within it to create a new project
     const dialogBox = document.createElement("dialog");
     document.getElementById("content").appendChild(dialogBox);
     dialogBox.open = true;
@@ -39,7 +40,8 @@ export default function createProject() {
     const formButton = document.createElement("button");
     formButton.innerHTML = "OK"
     dialogForm.appendChild(formButton);
-    
+
+    //submits the project into the project array and closes the dialog box
     formButton.onclick = () => {
         let project = new Project(formInput.value);
         let projectArr = project.createArray();
@@ -51,6 +53,7 @@ export default function createProject() {
         }, 1);
     }
 
+    //removes the dialog box without sending any information
     const formCancel = document.createElement("button");
     formCancel.innerHTML = "Cancel";
     dialogForm.appendChild(formCancel);
