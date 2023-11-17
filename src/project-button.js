@@ -1,5 +1,6 @@
 import { mainPanelDiv, projectArray } from ".";
 import createTask from "./create-task";
+import editTask from "./edit-task";
 
 //creates the task button
 export const taskButton = document.createElement("button");
@@ -15,17 +16,18 @@ export default function openProject(project) {
     };
 
     for (let i = 0; i < project.projectArr[1].length; i++) {
+      const outerArray = project.projectArr[1];
+      const innerArray = outerArray[i];
 
       let taskDiv = document.createElement("div");
       taskDiv.classList.add("task-div");
+      taskDiv.setAttribute("id", innerArray[4]);
 
-      const outerArray = project.projectArr[1];
-      const innerArray = outerArray[i];
 
       let checkDiv = document.createElement("input");
       checkDiv.classList.add("task-check");
       checkDiv.setAttribute("type", "checkbox");
-      checkDiv.checked = innerArray[4];
+      checkDiv.checked = innerArray[5];
 
       let titleDiv = document.createElement("div");
       titleDiv.classList.add("title-div");
@@ -42,10 +44,44 @@ export default function openProject(project) {
       let editButton = document.createElement("button");
       editButton.classList.add("edit-task-button");
       editButton.innerHTML = "Edit Task";
+      editButton.onclick = () => {
+        titleDiv.classList.add("active");
+        dueDateDiv.classList.add("active");
+        priorityDiv.classList.add("active");
+
+        
+        let taskArray = project.taskList;
+
+        let test1 = taskArray[0]
+
+        console.log(test1);
+
+        editTask(test1);
+    }
 
       let deleteTask = document.createElement("button");
       deleteTask.classList.add("delete-task-button");
       deleteTask.innerHTML = "X";
+      deleteTask.onclick = () => {
+
+        let taskArray = project.taskList;
+
+        for (let i = 0; i < taskArray.length; i++) {
+            let outerArray = taskArray[i];
+            let innerArray = outerArray[4];
+            console.log(innerArray);
+            
+            if (innerArray == deleteTask.parentNode.id) {
+                taskArray.splice(i, 1);
+            }
+        }
+        console.log(taskArray);
+
+        function removeTask(button) {
+            button.parentNode.parentNode.removeChild(button.parentNode);
+        }
+        removeTask(deleteTask);
+    }
 
       mainPanelDiv.appendChild(taskDiv)
       taskDiv.appendChild(checkDiv);
@@ -66,5 +102,14 @@ export default function openProject(project) {
       createTask(project.taskList);
       // console.log(project.tasklist);
     }
+
+  //   let editButton = document.querySelector(".edit-task-button");
+
+  //   editButton.onclick = () => {
+  //     editButton.parentNode.querySelector(".title-div").classList.add("active");
+  //     // dueDateDiv.classList.add("active");
+  //     // priorityDiv.classList.add("active");
+  //     console.log(projectArray);
+  // }
 
 }

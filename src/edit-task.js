@@ -1,9 +1,6 @@
 import { projectArray } from ".";
-import { Task } from "./create-task";
 
 export default function editTask(task) {
-
-   let taskArray = task.taskArray;
 
     const dialogBox = document.createElement("dialog");
     document.getElementById("content").appendChild(dialogBox);
@@ -19,7 +16,7 @@ export default function editTask(task) {
 
     const titleInput = document.createElement("input");
     titleInput.setAttribute("type", "text");
-    titleInput.value = taskArray[0];
+    titleInput.value = task.title;
     dialogForm.appendChild(titleInput);
 
     const descriptPara = document.createElement("p");
@@ -28,7 +25,7 @@ export default function editTask(task) {
 
     const descriptInput = document.createElement("input");
     descriptInput.setAttribute("type", "text");
-    descriptInput.value = taskArray[1];
+    descriptInput.value = task.description;
     dialogForm.appendChild(descriptInput);
 
     const datePara = document.createElement("p");
@@ -37,7 +34,7 @@ export default function editTask(task) {
 
     const dateInput = document.createElement("input");
     dateInput.setAttribute("type", "date");
-    dateInput.value = taskArray[2];
+    dateInput.value = task.dueDate;
     dialogForm.appendChild(dateInput);
 
     const priorityPara = document.createElement("p");
@@ -46,7 +43,7 @@ export default function editTask(task) {
 
     const priorityInput = document.createElement("input");
     priorityInput.setAttribute("type", "checkbox");
-    priorityInput.checked= taskArray[3];
+    priorityInput.checked= task.priority;
     dialogForm.appendChild(priorityInput);
 
     const formButton = document.createElement("button");
@@ -54,19 +51,19 @@ export default function editTask(task) {
     dialogForm.appendChild(formButton);
 
     formButton.onclick = () => {
-        taskArray[0] = titleInput.value;
+        task.editTitle = titleInput.value;
         let titleDiv = document.querySelector(".title-div.active");
-        titleDiv.innerHTML = taskArray[0];
+        titleDiv.innerHTML = task.title;
 
-        taskArray[1] = descriptInput.value;
+        task.editDescription = descriptInput.value;
 
-        taskArray[2] = dateInput.value;
+        task.editDueDate = dateInput.value;
         let dueDateDiv = document.querySelector(".due-date-div.active");
-        dueDateDiv.innerHTML = taskArray[2];
+        dueDateDiv.innerHTML = task.dueDate;
 
-        taskArray[3] = priorityInput.checked;
+        task.editPriority = priorityInput.checked;
         let priorityDiv = document.querySelector(".priority-div.active");
-        priorityDiv.innerHTML = taskArray[3];
+        priorityDiv.innerHTML = task.priority;
 
         setTimeout( function removeActive() {
             titleDiv.classList.remove("active");
@@ -78,8 +75,8 @@ export default function editTask(task) {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
 
-        console.log(task);
-        console.log(projectArray);
+        // console.log(task);
+        // console.log(projectArray);
         
     }
 }

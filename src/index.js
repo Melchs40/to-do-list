@@ -1,9 +1,8 @@
-import createProject from "./create-project";
+import createProject from "./new-create-project";
 
 document.title = "To-Do List";
 
 export const projectArray = [];
-export const tasksArray = [];
 
 const content = document.getElementById("content");
 

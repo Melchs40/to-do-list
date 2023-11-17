@@ -1,27 +1,5 @@
+import { Project } from "./project-class";
 import { projectArray } from ".";
-import pushProjects from "./push-projects";
-
-//creates class of Project
-export class Project {
-    constructor(title) {
-        this.title = title;
-        this.taskList = [];
-        this.id = Math.floor(Math.random() * Math.pow(10000000, 2));
-        this.projectArr = [];
-    }
-    //creates an array out of project constructors
-    createArray() {
-        this.projectArr.push(this.title);
-        this.projectArr.push(this.taskList);
-        this.projectArr.push(this.id);
-        return this.projectArr;
-    }
-
-    set editTitle(title) {
-        this.title = title;
-        this.projectArr[0] = title;
-    }
-}
 
 export default function createProject() {
 
@@ -48,11 +26,13 @@ export default function createProject() {
 
     //submits the project into the project array and closes the dialog box
     formButton.onclick = () => {
+   
         let project = new Project(formInput.value);
-        let projectArr = project.createArray();
-        projectArray.push(projectArr);
-        pushProjects(project);
-        // console.log(projectArray);
+        projectArray.push(project);
+        console.log(project);
+        console.log(projectArray);
+        console.log(projectArray[0].id);
+
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
