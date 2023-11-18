@@ -1,5 +1,6 @@
 import { Project } from "./project-class";
 import { projectArray } from ".";
+import pushProjects from "./new-push-projects";
 
 export default function createProject() {
 
@@ -29,10 +30,14 @@ export default function createProject() {
    
         let project = new Project(formInput.value);
         projectArray.push(project);
+
         console.log(project);
         console.log(projectArray);
-        console.log(projectArray[0].id);
+       
 
+        //look into push projects to add the newly created project to the DOM
+
+        pushProjects(project);
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);

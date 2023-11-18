@@ -1,6 +1,8 @@
-import { projectArray } from ".";
+import { Task } from "./task-class";
+import pushTasks from "./new-push-task";
 
-export default function editTask(task) {
+//creates a dialog box and the form within it to add a new task to the current project
+export default function createTask(project) {
 
     const dialogBox = document.createElement("dialog");
     document.getElementById("content").appendChild(dialogBox);
@@ -16,16 +18,14 @@ export default function editTask(task) {
 
     const titleInput = document.createElement("input");
     titleInput.setAttribute("type", "text");
-    titleInput.value = task.title;
     dialogForm.appendChild(titleInput);
 
     const descriptPara = document.createElement("p");
-    descriptPara.innerHTML = "Describe your task";
+    descriptPara.innerHTML = "Describe your task:";
     dialogForm.appendChild(descriptPara);
 
     const descriptInput = document.createElement("input");
     descriptInput.setAttribute("type", "text");
-    descriptInput.value = task.description;
     dialogForm.appendChild(descriptInput);
 
     const datePara = document.createElement("p");
@@ -34,7 +34,6 @@ export default function editTask(task) {
 
     const dateInput = document.createElement("input");
     dateInput.setAttribute("type", "date");
-    dateInput.value = task.dueDate;
     dialogForm.appendChild(dateInput);
 
     const priorityPara = document.createElement("p");
@@ -43,7 +42,6 @@ export default function editTask(task) {
 
     const priorityInput = document.createElement("input");
     priorityInput.setAttribute("type", "checkbox");
-    priorityInput.checked= task.priority;
     dialogForm.appendChild(priorityInput);
 
     const formButton = document.createElement("button");
@@ -51,32 +49,23 @@ export default function editTask(task) {
     dialogForm.appendChild(formButton);
 
     formButton.onclick = () => {
-        task.editTitle = titleInput.value;
-        let titleDiv = document.querySelector(".title-div.active");
-        titleDiv.textContent = task.title;
+        let task = new Task(titleInput.value, descriptInput.value, dateInput.value, priorityInput.checked);
+        
+        project.push(task);
 
-        task.editDescription = descriptInput.value;
-
-        task.editDueDate = dateInput.value;
-        let dueDateDiv = document.querySelector(".due-date-div.active");
-        dueDateDiv.textContent = task.dueDate;
-
-        task.editPriority = priorityInput.checked;
-        let priorityDiv = document.querySelector(".priority-div.active");
-        priorityDiv.textContent = task.priority;
-
-        setTimeout( function removeActive() {
-            titleDiv.classList.remove("active");
-            dueDateDiv.classList.remove("active");
-            priorityDiv.classList.remove("active");
-        }, 1);
+        console.log(task);
+        console.log(project);
+        pushTasks(task);
 
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
+    }
 
-        // console.log(task);
-        // console.log(projectArray);
-        
+    const formCancel = document.createElement("button");
+    formCancel.innerHTML = "Cancel";
+    dialogForm.appendChild(formCancel);
+    formCancel.onclick = () => {
+        dialogBox.parentNode.removeChild(dialogBox);
     }
 }

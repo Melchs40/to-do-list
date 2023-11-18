@@ -17,7 +17,7 @@ export class Project {
     set removeTask(taskToRemove) {
         for (let i = 0; i < this.taskList.length; i++) {
             let taskArray = this.taskList[i];
-            let taskId = taskArray[3]
+            let taskId = taskArray[4]
             if (taskToRemove == taskId) {
                 this.taskList.splice(i, 1);
             }

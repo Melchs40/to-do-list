@@ -1,5 +1,3 @@
-import { projectArray } from ".";
-
 export default function editTask(task) {
 
     const dialogBox = document.createElement("dialog");
@@ -53,17 +51,17 @@ export default function editTask(task) {
     formButton.onclick = () => {
         task.editTitle = titleInput.value;
         let titleDiv = document.querySelector(".title-div.active");
-        titleDiv.textContent = task.title;
+        titleDiv.innerHTML = task.title;
 
         task.editDescription = descriptInput.value;
 
         task.editDueDate = dateInput.value;
         let dueDateDiv = document.querySelector(".due-date-div.active");
-        dueDateDiv.textContent = task.dueDate;
+        dueDateDiv.innerHTML = task.dueDate;
 
         task.editPriority = priorityInput.checked;
         let priorityDiv = document.querySelector(".priority-div.active");
-        priorityDiv.textContent = task.priority;
+        priorityDiv.innerHTML = task.priority;
 
         setTimeout( function removeActive() {
             titleDiv.classList.remove("active");
@@ -74,9 +72,6 @@ export default function editTask(task) {
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
-
-        // console.log(task);
-        // console.log(projectArray);
         
     }
 }
