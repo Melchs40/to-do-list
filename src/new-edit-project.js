@@ -25,10 +25,23 @@ export default function editProject(project) {
         document.getElementById(project.id).innerHTML = titleInput.value;
         project.editTitle = titleInput.value;
 
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));
+
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
 
+    }
+
+    const formCancel = document.createElement("button");
+    formCancel.innerHTML = "Cancel";
+    dialogForm.appendChild(formCancel);
+    formCancel.onclick = () => {
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));
+        
+        dialogBox.parentNode.removeChild(dialogBox);
     }
 
 }

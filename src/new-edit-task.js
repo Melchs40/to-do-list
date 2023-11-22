@@ -63,6 +63,9 @@ export default function editTask(task) {
         let priorityDiv = document.querySelector(".priority-div.active");
         priorityDiv.innerHTML = task.priority;
 
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));
+
         setTimeout( function removeActive() {
             titleDiv.classList.remove("active");
             dueDateDiv.classList.remove("active");
@@ -73,5 +76,16 @@ export default function editTask(task) {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
         
+    }
+
+    const formCancel = document.createElement("button");
+    formCancel.innerHTML = "Cancel";
+    dialogForm.appendChild(formCancel);
+    formCancel.onclick = () => {
+
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));
+
+        dialogBox.parentNode.removeChild(dialogBox);
     }
 }

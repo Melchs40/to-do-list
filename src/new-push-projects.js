@@ -19,6 +19,8 @@ export default function pushProjects(project) {
     editButton.classList.add("project-edit-button");
     editButton.innerHTML = "Edit this";
     editButton.onclick = () => {
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.setAttribute("disabled", "true"));
         
         editProject(project);
     }

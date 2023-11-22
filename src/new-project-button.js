@@ -28,18 +28,38 @@ export default function openProject(project) {
         checkDiv.classList.add("task-check");
         checkDiv.setAttribute("type", "checkbox");
         checkDiv.checked = taskArray.checked;
+        checkDiv.onclick = () => {
+            taskArray.checked = !taskArray.checked;
+            console.log(taskArray.checked);
+            if (taskArray.checked == true) {
+                titleDiv.classList.add("checked"),
+                dueDateDiv.classList.add("checked"),
+                priorityDiv.classList.add("checked");
+            } else titleDiv.classList.remove("checked"),
+                dueDateDiv.classList.remove("checked"),
+                priorityDiv.classList.remove("checked");
+        }
 
         let titleDiv = document.createElement("div");
         titleDiv.classList.add("title-div");
         titleDiv.innerHTML = taskArray.title;
+        if (checkDiv.checked == true) {
+            titleDiv.classList.add("checked");
+        }
 
         let dueDateDiv = document.createElement("div");
         dueDateDiv.classList.add("due-date-div");
         dueDateDiv.innerHTML = taskArray.dueDate;
+        if (checkDiv.checked == true) {
+            dueDateDiv.classList.add("checked");
+        }
 
         let priorityDiv = document.createElement("div");
         priorityDiv.classList.add("priority-div");
         priorityDiv.innerHTML = taskArray.priority;
+        if (priorityDiv.checked == true) {
+            titleDiv.classList.add("checked");
+        }
 
         let editButton = document.createElement("button");
         editButton.classList.add("edit-task-button");
@@ -90,6 +110,11 @@ export default function openProject(project) {
     mainPanelDiv.appendChild(taskButton);
 
     taskButton.onclick = () => {
+
+        let pageButtons = document.querySelectorAll("button");
+
+        pageButtons.forEach(pageButton => pageButton.setAttribute('disabled', 'true'));
+
         console.log("task button press");
 
         createTask(project.taskList);

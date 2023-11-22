@@ -13,6 +13,17 @@ export default function pushTasks(task) {
     checkDiv.classList.add("task-check");
     checkDiv.setAttribute("type", "checkbox");
     checkDiv.checked = task.checked;
+    checkDiv.onclick = () => {
+        task.checked = !task.checked;
+        console.log(task.checked);
+        if (checkDiv.checked == true) {
+            titleDiv.classList.add("checked"),
+            dueDateDiv.classList.add("checked"),
+            priorityDiv.classList.add("checked");
+        } else titleDiv.classList.remove("checked"),
+            dueDateDiv.classList.remove("checked"),
+            priorityDiv.classList.remove("checked");
+    };
 
     let titleDiv = document.createElement("div");
     titleDiv.classList.add("title-div");
@@ -34,6 +45,9 @@ export default function pushTasks(task) {
         titleDiv.classList.add("active");
         dueDateDiv.classList.add("active");
         priorityDiv.classList.add("active");
+
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.setAttribute("disabled", "true"));
 
         editTask(task);
     }

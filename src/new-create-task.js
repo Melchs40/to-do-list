@@ -57,6 +57,9 @@ export default function createTask(project) {
         console.log(project);
         pushTasks(task);
 
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));
+
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
@@ -66,6 +69,10 @@ export default function createTask(project) {
     formCancel.innerHTML = "Cancel";
     dialogForm.appendChild(formCancel);
     formCancel.onclick = () => {
+
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));
+
         dialogBox.parentNode.removeChild(dialogBox);
     }
 }

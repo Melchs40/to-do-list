@@ -1,6 +1,7 @@
 import { Project } from "./project-class";
 import { projectArray } from ".";
 import pushProjects from "./new-push-projects";
+import openProject from "./new-project-button";
 
 export default function createProject() {
 
@@ -33,6 +34,10 @@ export default function createProject() {
 
         console.log(project);
         console.log(projectArray);
+        openProject(project);
+
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));
        
 
         //look into push projects to add the newly created project to the DOM
@@ -48,6 +53,9 @@ export default function createProject() {
     formCancel.innerHTML = "Cancel";
     dialogForm.appendChild(formCancel);
     formCancel.onclick = () => {
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));
+        
         dialogBox.parentNode.removeChild(dialogBox);
     }
 

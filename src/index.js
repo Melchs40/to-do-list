@@ -140,5 +140,8 @@ content.appendChild(footer);
 
 //gives the project buttons their functionality from project-button.js
 projectButton.onclick = () => {
+    let pageButtons = document.querySelectorAll("button");
+    pageButtons.forEach(pageButton => pageButton.setAttribute('disabled', 'true'));
+
     createProject();
 };
