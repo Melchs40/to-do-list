@@ -1,6 +1,7 @@
 import { mainPanelDiv } from ".";
 import createTask from "./new-create-task";
 import editTask from "./new-edit-task";
+import displayTask from "./display-full-task";
 
 //creates the task button
 export const taskButton = document.createElement("button");
@@ -46,6 +47,12 @@ export default function openProject(project) {
         if (checkDiv.checked == true) {
             titleDiv.classList.add("checked");
         }
+        titleDiv.onclick = () => {
+            let pageButtons = document.querySelectorAll("button");
+            pageButtons.forEach(pageButton => pageButton.setAttribute("disabled", "true"));
+    
+            displayTask(taskArray);
+        }
 
         let dueDateDiv = document.createElement("div");
         dueDateDiv.classList.add("due-date-div");
@@ -69,6 +76,10 @@ export default function openProject(project) {
             titleDiv.classList.add("active");
             dueDateDiv.classList.add("active");
             priorityDiv.classList.add("active");
+
+            let pageButtons = document.querySelectorAll("button");
+
+            pageButtons.forEach(pageButton => pageButton.setAttribute("disabled", "true"));
 
             editTask(taskArray);
         }
@@ -113,7 +124,7 @@ export default function openProject(project) {
 
         let pageButtons = document.querySelectorAll("button");
 
-        pageButtons.forEach(pageButton => pageButton.setAttribute('disabled', 'true'));
+        pageButtons.forEach(pageButton => pageButton.setAttribute("disabled", "true"));
 
         console.log("task button press");
 

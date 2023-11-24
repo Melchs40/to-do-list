@@ -1,4 +1,5 @@
 import createProject from "./new-create-project";
+import todayButton from "./today-button";
 
 document.title = "To-Do List";
 
@@ -145,3 +146,7 @@ projectButton.onclick = () => {
 
     createProject();
 };
+
+today.onclick = () => {
+    todayButton(projectArray);
+}

@@ -1,6 +1,7 @@
 import { projectArray, projectDiv } from ".";
 import editProject from "./new-edit-project";
 import openProject from "./new-project-button";
+import { mainPanelDiv } from ".";
 
 //adds the created project into the HTML
 export default function pushProjects(project) {
@@ -42,6 +43,12 @@ export default function pushProjects(project) {
             button.parentNode.parentNode.removeChild(button.parentNode);
         }
         deleteProject(deleteButton);
+
+        if (mainPanelDiv.hasChildNodes()) {
+            while (mainPanelDiv.firstChild) {
+              mainPanelDiv.removeChild(mainPanelDiv.firstChild);
+            }
+        };
     }
 
     projectDiv.appendChild(createdProject);

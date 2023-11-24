@@ -2,6 +2,7 @@ import { mainPanelDiv } from ".";
 import { taskButton } from "./new-project-button";
 import { projectArray } from ".";
 import editTask from "./new-edit-task";
+import displayTask from "./display-full-task";
 
 export default function pushTasks(task) {
         
@@ -28,6 +29,12 @@ export default function pushTasks(task) {
     let titleDiv = document.createElement("div");
     titleDiv.classList.add("title-div");
     titleDiv.innerHTML = task.title;
+    titleDiv.onclick = () => {
+        let pageButtons = document.querySelectorAll("button");
+        pageButtons.forEach(pageButton => pageButton.setAttribute("disabled", "true"));
+
+        displayTask(task);
+    }
 
     let dueDateDiv = document.createElement("div");
     dueDateDiv.classList.add("due-date-div");
