@@ -1,8 +1,7 @@
-import isThisWeek from "date-fns/isThisWeek";
 import editTask from "./new-edit-task";
 import { mainPanelDiv } from ".";
 
-export default function thisWeekButton(projectArray) {
+export default function importantButton(projectArray) {
 
     if (mainPanelDiv.hasChildNodes()) {
         while (mainPanelDiv.firstChild) {
@@ -15,15 +14,9 @@ export default function thisWeekButton(projectArray) {
         let taskList = project.taskList;
 
         for(let i = 0; i < taskList.length; i++) {
-            let dueDate = taskList[i].dueDate;
-            let dueDateBreakdown = dueDate.split("-");
-            let dueDateYear = dueDateBreakdown[0];
-            let dueDateMonth = (dueDateBreakdown[1] - 1);
-            let dueDateDay = dueDateBreakdown[2];
-
-            let result = isThisWeek(new Date(dueDateYear, dueDateMonth, dueDateDay));
+            let important = taskList[i].priority
             
-            if (result == true) {
+            if (important == true) {
                 
                 console.log("this is true");
 
