@@ -1,5 +1,7 @@
 import createProject from "./new-create-project";
 import todayButton from "./today-button";
+import thisWeekButton from "./this-week-button";
+import allTasksButton from "./all-tasks-button";
 
 document.title = "To-Do List";
 
@@ -149,4 +151,12 @@ projectButton.onclick = () => {
 
 today.onclick = () => {
     todayButton(projectArray);
+}
+
+thisWeek.onclick = () => {
+    thisWeekButton(projectArray);
+}
+
+allTasks.onclick = () => {
+    allTasksButton(projectArray);
 }
