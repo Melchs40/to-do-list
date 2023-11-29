@@ -50,7 +50,7 @@ content.appendChild(sidePanel);
         thisWeek.innerHTML = "This Week";
         home.appendChild(thisWeek);
 
-        const important = document.createElement("button");
+        export const important = document.createElement("button");
         important.setAttribute("id", "important");
         important.innerHTML = "Important";
         home.appendChild(important);
@@ -163,5 +163,6 @@ allTasks.onclick = () => {
 }
 
 important.onclick = () => {
+    console.log("important was clicked");
     importantButton(projectArray);
 }

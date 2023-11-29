@@ -1,4 +1,4 @@
-export default function editTask(task) {
+export default function editTask(task, callback) {
 
     const dialogBox = document.createElement("dialog");
     document.getElementById("content").appendChild(dialogBox);
@@ -75,6 +75,11 @@ export default function editTask(task) {
         setTimeout( function removeDialog() {
             dialogBox.parentNode.removeChild(dialogBox)
         }, 1);
+
+        setTimeout(function() {
+            console.log("callback function");
+            callback();
+          }, 1);
         
     }
 

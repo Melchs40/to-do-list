@@ -87,7 +87,7 @@ export default function todayButton(projectArray) {
 
                     pageButtons.forEach(pageButton => pageButton.setAttribute("disabled", "true"));
 
-                    editTask(taskList[i]);
+                    editTask(taskList[i], () => {todayButton(projectArray)});
                 }
 
                 let deleteTask = document.createElement("button");
@@ -119,11 +119,7 @@ export default function todayButton(projectArray) {
                 taskDiv.appendChild(editButton);
                 taskDiv.appendChild(deleteTask);
 
-
-
-
             } else console.log("this is false");
         }
     }
-
 }

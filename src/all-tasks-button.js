@@ -14,7 +14,6 @@ export default function allTasksButton(projectArray) {
         let taskList = project.taskList;
 
         for(let i = 0; i < taskList.length; i++) {
-        
 
             let taskDiv = document.createElement("div");
             taskDiv.classList.add("task-div");
@@ -107,9 +106,6 @@ export default function allTasksButton(projectArray) {
             taskDiv.appendChild(priorityDiv);
             taskDiv.appendChild(editButton);
             taskDiv.appendChild(deleteTask);
-
-
-
 
         }
     }

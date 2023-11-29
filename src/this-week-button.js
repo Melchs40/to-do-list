@@ -87,7 +87,7 @@ export default function thisWeekButton(projectArray) {
 
                     pageButtons.forEach(pageButton => pageButton.setAttribute("disabled", "true"));
 
-                    editTask(taskList[i]);
+                    editTask(taskList[i], () => {thisWeekButton(projectArray)});
                 }
 
                 let deleteTask = document.createElement("button");
@@ -119,11 +119,7 @@ export default function thisWeekButton(projectArray) {
                 taskDiv.appendChild(editButton);
                 taskDiv.appendChild(deleteTask);
 
-
-
-
             } else console.log("this is false");
         }
     }
-
 }
