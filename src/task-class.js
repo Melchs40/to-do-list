@@ -27,7 +27,17 @@ export class Task {
 
     set editDueDate(dueDate) {
         this.dueDate = dueDate;
-        return this.title;
+        return this.dueDate;
+    }
+
+    set editFormatDate(dueDate) {
+        this.dueDate = dueDate;
+        const dateComponents = dueDate.split("-");
+        const year = dateComponents[0];
+        const month = dateComponents[1];
+        const day = dateComponents[2];
+        this.formatDate = `${month}/${day}/${year}`;
+        return this.formatDate;
     }
 
     set editPriority(priority) {

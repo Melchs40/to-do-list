@@ -56,6 +56,7 @@ export default function editTask(task, callback) {
         task.editDescription = descriptInput.value;
 
         task.editDueDate = dateInput.value;
+        task.editFormatDate = task.dueDate;
         let dueDateDiv = document.querySelector(".due-date-div.active");
         if (task.dueDate !== "") {
             dueDateDiv.innerHTML = task.formatDate;

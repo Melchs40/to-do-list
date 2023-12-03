@@ -1,6 +1,6 @@
 import { Project } from "./project-class";
 import { projectArray } from ".";
-import pushProjects from "./new-push-projects";
+import pushProjects from "./push-projects";
 import openProject from "./new-project-button";
 
 export default function createProject() {
