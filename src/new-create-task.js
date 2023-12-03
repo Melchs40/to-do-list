@@ -1,5 +1,5 @@
 import { Task } from "./task-class";
-import pushTasks from "./push-task";
+import pushTasks from "./new-push-task";
 
 //creates a dialog box and the form within it to add a new task to the current project
 export default function createTask(project) {
