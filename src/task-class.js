@@ -7,6 +7,12 @@ export class Task {
         this.priority = priority;
         this.id = Math.floor(Math.random() * Math.pow(10000000, 2));
         this.checked = false;
+
+        const dateComponents = dueDate.split("-");
+        const year = dateComponents[0];
+        const month = dateComponents[1];
+        const day = dateComponents[2];
+        this.formatDate = `${month}/${day}/${year}`;
     }
 
     set editTitle(title) {

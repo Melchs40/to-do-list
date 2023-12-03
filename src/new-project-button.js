@@ -56,14 +56,18 @@ export default function openProject(project) {
 
         let dueDateDiv = document.createElement("div");
         dueDateDiv.classList.add("due-date-div");
-        dueDateDiv.innerHTML = taskArray.dueDate;
+        if (taskArray.dueDate !== "") {
+            dueDateDiv.innerHTML = taskArray.formatDate;
+        } else dueDateDiv.innerHTML = "no due date";
         if (checkDiv.checked == true) {
             dueDateDiv.classList.add("checked");
         }
 
         let priorityDiv = document.createElement("div");
         priorityDiv.classList.add("priority-div");
-        priorityDiv.innerHTML = taskArray.priority;
+        if (taskArray.priority == true) {
+            taskDiv.setAttribute("class", "task-div important");
+        } else console.log("not important");
         if (priorityDiv.checked == true) {
             titleDiv.classList.add("checked");
         }

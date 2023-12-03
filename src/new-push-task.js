@@ -38,11 +38,17 @@ export default function pushTasks(task) {
 
     let dueDateDiv = document.createElement("div");
     dueDateDiv.classList.add("due-date-div");
-    dueDateDiv.innerHTML = task.dueDate;
+    if (task.dueDate !== "") {
+        dueDateDiv.innerHTML = task.formatDate;
+    } else dueDateDiv.innerHTML = "no due date";
 
     let priorityDiv = document.createElement("div");
     priorityDiv.classList.add("priority-div");
-    priorityDiv.innerHTML = task.priority
+    priorityDiv.classList.add("material-symbols-outlined");
+    if (task.priority == true) {
+        taskDiv.setAttribute("class", "task-div important");
+        priorityDiv.innerHTML = "warning";
+    } else console.log("not important");
 
     let editButton = document.createElement("button");
     editButton.classList.add("edit-task-button");

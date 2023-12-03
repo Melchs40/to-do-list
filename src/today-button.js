@@ -62,7 +62,7 @@ export default function todayButton(projectArray) {
 
                 let dueDateDiv = document.createElement("div");
                 dueDateDiv.classList.add("due-date-div");
-                dueDateDiv.innerHTML = taskList[i].dueDate;
+                dueDateDiv.innerHTML = taskList[i].formatDate;
                 if (checkDiv.checked == true) {
                     dueDateDiv.classList.add("checked");
                 }

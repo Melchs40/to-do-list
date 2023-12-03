@@ -9,16 +9,46 @@ export default function pushProjects(project) {
     createdProject.classList.add("project");
     const projectName = document.createElement("div");
     projectName.setAttribute("id", project.id);
-    projectName.innerHTML = project.title;
-    projectName.onclick = () => {
-
-        openProject(project);
+    if (project.title == "") {
+        projectName.innerHTML = "Mystery Project!"
+    } else {
+        projectName.innerHTML = project.title;
     }
+    // function addOpenClass() {
+    //     let projects = document.querySelectorAll(".open-project");
+    //     projects.forEach(project => {
+    //         project.classList.remove("open-project");
+    //     });
+    //     createdProject.classList.add("open-project");
+
+    //     let edits = document.querySelectorAll(".project-edit-button");
+    //     edits.forEach(edit => {
+    //         edit.classList.remove("open-project");
+    //     });
+    //     editButton.classList.add("open-project");
+
+    //     let deletes = document.querySelectorAll(".project-delete-button");
+    //     deletes.forEach(deleteBtn => {
+    //         deleteBtn.classList.remove("open-project");
+    //     });
+    //     deleteButton.classList.add("open-project");
+    // }
+
+    // addOpenClass();
+
+    // projectName.onclick = () => {
+
+    //     addOpenClass();
+
+    //     openProject(project);
+
+    // }
 
     //adds edit button to the project div
     const editButton = document.createElement("button");
     editButton.classList.add("project-edit-button");
-    editButton.innerHTML = "Edit this";
+    editButton.classList.add("material-symbols-outlined");
+    editButton.innerHTML = "edit";
     editButton.onclick = () => {
         let pageButtons = document.querySelectorAll("button");
         pageButtons.forEach(pageButton => pageButton.setAttribute("disabled", "true"));
@@ -29,7 +59,8 @@ export default function pushProjects(project) {
     //adds delete button to the project div
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("project-delete-button")
-    deleteButton.innerHTML = "X";
+    deleteButton.classList.add("material-symbols-outlined");
+    deleteButton.innerHTML = "delete";
     deleteButton.onclick = () => {
 
         for (let i = 0; i < projectArray.length; i++) {
@@ -49,6 +80,36 @@ export default function pushProjects(project) {
               mainPanelDiv.removeChild(mainPanelDiv.firstChild);
             }
         };
+    }
+
+    function addOpenClass() {
+        let projects = document.querySelectorAll(".open-project");
+        projects.forEach(project => {
+            project.classList.remove("open-project");
+        });
+        createdProject.classList.add("open-project");
+
+        let edits = document.querySelectorAll(".project-edit-button");
+        edits.forEach(edit => {
+            edit.classList.remove("open-project");
+        });
+        editButton.classList.add("open-project");
+
+        let deletes = document.querySelectorAll(".project-delete-button");
+        deletes.forEach(deleteBtn => {
+            deleteBtn.classList.remove("open-project");
+        });
+        deleteButton.classList.add("open-project");
+    }
+
+    addOpenClass();
+
+    projectName.onclick = () => {
+
+        addOpenClass();
+
+        openProject(project);
+
     }
 
     projectDiv.appendChild(createdProject);

@@ -59,7 +59,7 @@ export default function editTask(task) {
 
         task.editDueDate = dateInput.value;
         let dueDateDiv = document.querySelector(".due-date-div.active");
-        dueDateDiv.textContent = task.dueDate;
+        dueDateDiv.textContent = task.formatDate;
 
         task.editPriority = priorityInput.checked;
         let priorityDiv = document.querySelector(".priority-div.active");

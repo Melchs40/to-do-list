@@ -57,11 +57,20 @@ export default function editTask(task, callback) {
 
         task.editDueDate = dateInput.value;
         let dueDateDiv = document.querySelector(".due-date-div.active");
-        dueDateDiv.innerHTML = task.dueDate;
+        if (task.dueDate !== "") {
+            dueDateDiv.innerHTML = task.formatDate;
+        } else dueDateDiv.innerHTML = "no due date";
 
         task.editPriority = priorityInput.checked;
         let priorityDiv = document.querySelector(".priority-div.active");
-        priorityDiv.innerHTML = task.priority;
+        priorityDiv.classList.add("material-symbols-outlined");
+        if (task.priority == true) {
+            priorityDiv.parentNode.setAttribute("class", "task-div important");
+            priorityDiv.innerHTML = "warning";
+        } else {
+            priorityDiv.innerHTML = "";
+            priorityDiv.parentNode.setAttribute("class", "task-div");
+        }
 
         let pageButtons = document.querySelectorAll("button");
         pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));

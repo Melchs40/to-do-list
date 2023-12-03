@@ -50,7 +50,9 @@ export default function allTasksButton(projectArray) {
 
             let dueDateDiv = document.createElement("div");
             dueDateDiv.classList.add("due-date-div");
-            dueDateDiv.innerHTML = taskList[i].dueDate;
+            if (taskList[i].dueDate !== "") {
+                dueDateDiv.innerHTML = taskList[i].formatDate;
+            } else dueDateDiv.innerHTML = "no due date";
             if (checkDiv.checked == true) {
                 dueDateDiv.classList.add("checked");
             }

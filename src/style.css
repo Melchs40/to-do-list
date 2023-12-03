@@ -1,1 +1,149 @@
-/*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+#content {
+  background-color: #f6f7fb;
+  height: 100%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  min-width: 900px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 50px 500px 25px;
+}
+
+button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #edf2fb;
+}
+
+dialog {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: red;
+}
+
+#side-panel {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border: 1px solid black;
+  background-color: #e2eafc;
+}
+
+#home-section {
+  background-color: blue;
+}
+
+#projects-section {
+  position: relative;
+  max-height: 460px;
+  height: 460px;
+  background-color: green;
+}
+
+#project-container {
+  overflow: auto;
+  scrollbar-width: thin;
+  background-color: lightgreen;
+  max-height: 400px;
+}
+
+.project {
+  margin-bottom: 3px;
+  border-top: 0.5px solid black;
+  border-bottom: 0.5px solid black;
+  background-color: #d7e3fc;
+  display: grid;
+  grid-template-columns: 200px 30px 30px;
+  align-items: center;
+  height: 40px;
+  font-size: 20px;
+  padding-left: 30px;
+}
+
+.project-edit-button, .project-delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-size: 20px;
+  width: 10px;
+  background-color: #d7e3fc;
+}
+
+.open-project {
+  background-color: #c1d3fe;
+}
+
+#project-button {
+  border: none;
+  border-radius: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background-color: transparent;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  position: absolute;
+  font-size: 42px;
+  line-height: 10px;
+  left: 5px;
+  bottom: 10px;
+}
+
+#main-panel {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color: orange;
+}
+
+#main-panel-div {
+  height: 430px;
+  position: relative;
+}
+
+#task-button {
+  position: absolute;
+  bottom: -30px;
+  left: 10px;
+}
+
+footer {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  background-color: purple;
+}
+
+.important {
+  background-color: pink;
+}
+
+.task-div {
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=style.css.map */
