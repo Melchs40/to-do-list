@@ -64,8 +64,8 @@ export default function allTasksButton(projectArray) {
                 taskDiv.setAttribute("class", "task-div important");
                 priorityDiv.innerHTML = "warning";
             } else console.log("not important");
-            if (priorityDiv.checked == true) {
-                titleDiv.classList.add("checked");
+            if (checkDiv.checked == true) {
+                priorityDiv.classList.add("checked");
             }
 
             let editButton = document.createElement("button");

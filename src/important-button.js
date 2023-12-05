@@ -64,8 +64,8 @@ export default function importantButton(projectArray) {
 
                 let priorityDiv = document.createElement("div");
                 priorityDiv.classList.add("priority-div");
-                if (priorityDiv.checked == true) {
-                    titleDiv.classList.add("checked");
+                if (checkDiv.checked == true) {
+                    priorityDiv.classList.add("checked");
                 }
 
                 let editButton = document.createElement("button");

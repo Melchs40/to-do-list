@@ -162,3 +162,17 @@ footer {
 .important > .priority-div {
     color: red;
 }
+
+.checked {
+    position: relative; /* For positioning of pseudo-element */
+    opacity: 50%;
+  }
+  
+  .checked::after {
+    content: ""; /* Generate content for pseudo-element */
+    position: absolute;
+    width: 100%;
+    border: 1px solid black; /* Adjust border-width and color as needed */
+    top: 50%; /* Vertically align the line-through */
+    left: 0; /* Horizontally align the line-through */
+  }
