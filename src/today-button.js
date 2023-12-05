@@ -69,14 +69,19 @@ export default function todayButton(projectArray) {
 
                 let priorityDiv = document.createElement("div");
                 priorityDiv.classList.add("priority-div");
-                priorityDiv.innerHTML = taskList[i].priority;
+                priorityDiv.classList.add("material-symbols-outlined");
+                if (taskList[i].priority == true) {
+                    taskDiv.setAttribute("class", "task-div important");
+                    priorityDiv.innerHTML = "warning";
+                } else console.log("not important");
                 if (priorityDiv.checked == true) {
                     titleDiv.classList.add("checked");
                 }
 
                 let editButton = document.createElement("button");
                 editButton.classList.add("edit-task-button");
-                editButton.innerHTML = "Edit Task";
+                editButton.classList.add("material-symbols-outlined");
+                editButton.innerHTML = "edit";
 
                 editButton.onclick = () => {
                     titleDiv.classList.add("active");
@@ -92,7 +97,8 @@ export default function todayButton(projectArray) {
 
                 let deleteTask = document.createElement("button");
                 deleteTask.classList.add("delete-task-button");
-                deleteTask.innerHTML = "X";
+                deleteTask.classList.add("material-symbols-outlined");
+                deleteTask.innerHTML = "delete";
 
                 deleteTask.onclick = () => {
 

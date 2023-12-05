@@ -70,7 +70,8 @@ export default function importantButton(projectArray) {
 
                 let editButton = document.createElement("button");
                 editButton.classList.add("edit-task-button");
-                editButton.innerHTML = "Edit Task";
+                editButton.classList.add("material-symbols-outlined");
+                editButton.innerHTML = "edit";
 
                 editButton.onclick = () => {
                     titleDiv.classList.add("active");
@@ -86,7 +87,8 @@ export default function importantButton(projectArray) {
 
                 let deleteTask = document.createElement("button");
                 deleteTask.classList.add("delete-task-button");
-                deleteTask.innerHTML = "X";
+                deleteTask.classList.add("material-symbols-outlined");
+                deleteTask.innerHTML = "delete";
 
                 deleteTask.onclick = () => {
 
