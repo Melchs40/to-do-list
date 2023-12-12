@@ -32,8 +32,15 @@ export default function createProject() {
         let project = new Project(formInput.value);
         projectArray.push(project);
 
-        console.log(project);
-        console.log(projectArray);
+        function addToLocalStorage(project) {
+            localStorage.setItem("projectArray", JSON.stringify(project));
+            console.log(projectArray);
+          };
+
+        addToLocalStorage(projectArray);
+
+        // console.log(project);
+        // console.log(projectArray);
         openProject(project);
 
         let pageButtons = document.querySelectorAll("button");

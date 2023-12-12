@@ -3,7 +3,9 @@ import todayButton from "./today-button";
 import thisWeekButton from "./this-week-button";
 import allTasksButton from "./all-tasks-button";
 import importantButton from "./important-button";
+import pushProjects from "./new-push-projects";
 import "./style.css";
+
 
 document.title = "To-Do List";
 
@@ -32,29 +34,29 @@ content.appendChild(sidePanel);
     sidePanel.appendChild(home);
 
         const homeTitle = document.createElement("div");
-        homeTitle.setAttribute("id", "home-title");
-        homeTitle.innerHTML = "Home";
+        homeTitle.setAttribute("id", "home-container");
+        // homeTitle.innerHTML = "Check your tasks:";
         home.appendChild(homeTitle);
 
         const allTasks = document.createElement("button");
         allTasks.setAttribute("id", "all-tasks");
         allTasks.innerHTML = "All Tasks";
-        home.appendChild(allTasks);
+        homeTitle.appendChild(allTasks);
 
         const today = document.createElement("button");
         today.setAttribute("id", "today");
         today.innerHTML = "Today";
-        home.appendChild(today);
+        homeTitle.appendChild(today);
 
         const thisWeek = document.createElement("button");
         thisWeek.setAttribute("id", "this-week");
         thisWeek.innerHTML = "This Week";
-        home.appendChild(thisWeek);
+        homeTitle.appendChild(thisWeek);
 
         export const important = document.createElement("button");
         important.setAttribute("id", "important");
         important.innerHTML = "Important";
-        home.appendChild(important);
+        homeTitle.appendChild(important);
     
     //needed in add-project.js to append divs/buttons to project section
     export const projects = document.createElement("div");
@@ -122,3 +124,26 @@ allTasks.onclick = () => {
 important.onclick = () => {
     importantButton(projectArray);
 }
+
+
+// for (let i = 0; i < localStorage.length; i++) {
+//   const key = localStorage.key(i);
+//   const value = localStorage.getItem(key);
+//   projectArray.push({ key, value });
+// }
+
+// const firstItem = projectArray[0];
+
+// console.log(firstItem.title);
+
+    let newObj = JSON.parse(localStorage.getItem("projectArray"));
+    console.log(newObj);
+    for (let i = 0; i < newObj.length; i++) {
+        console.log(newObj[i]);
+        projectArray.push(newObj[i])
+        pushProjects(newObj[i]);
+    }
+
+allTasks.click();
+
+   

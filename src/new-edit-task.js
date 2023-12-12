@@ -1,3 +1,5 @@
+import { projectArray } from ".";
+
 export default function editTask(task, callback) {
 
     const dialogBox = document.createElement("dialog");
@@ -49,20 +51,24 @@ export default function editTask(task, callback) {
     dialogForm.appendChild(formButton);
 
     formButton.onclick = () => {
-        task.editTitle = titleInput.value;
+        task.title = titleInput.value;
         let titleDiv = document.querySelector(".title-div.active");
         titleDiv.innerHTML = task.title;
 
-        task.editDescription = descriptInput.value;
+        task.description = descriptInput.value;
 
-        task.editDueDate = dateInput.value;
-        task.editFormatDate = task.dueDate;
+        task.dueDate = dateInput.value;
+        const dateComponents = task.dueDate.split("-");
+        const year = dateComponents[0];
+        const month = dateComponents[1];
+        const day = dateComponents[2];
+        task.formatDate = `${month}/${day}/${year}`;
         let dueDateDiv = document.querySelector(".due-date-div.active");
         if (task.dueDate !== "") {
             dueDateDiv.innerHTML = task.formatDate;
         } else dueDateDiv.innerHTML = "no due date";
 
-        task.editPriority = priorityInput.checked;
+        task.priority = priorityInput.checked;
         let priorityDiv = document.querySelector(".priority-div.active");
         priorityDiv.classList.add("material-symbols-outlined");
         if (task.priority == true) {
@@ -90,6 +96,8 @@ export default function editTask(task, callback) {
             console.log("callback function");
             callback();
           }, 1);
+
+        localStorage.setItem("projectArray", JSON.stringify(projectArray));
         
     }
 

@@ -1,8 +1,9 @@
 import { Task } from "./task-class";
 import pushTasks from "./new-push-task";
+import { projectArray } from ".";
 
 //creates a dialog box and the form within it to add a new task to the current project
-export default function createTask(project) {
+export default function createTask(project, project2) {
 
     const dialogBox = document.createElement("dialog");
     document.getElementById("content").appendChild(dialogBox);
@@ -56,6 +57,13 @@ export default function createTask(project) {
         console.log(task);
         console.log(project);
         pushTasks(task);
+
+        function addToLocalStorage(projectArray) {
+            localStorage.setItem("projectArray", JSON.stringify(projectArray));
+        };
+
+        addToLocalStorage(projectArray);
+        
 
         let pageButtons = document.querySelectorAll("button");
         pageButtons.forEach(pageButton => pageButton.removeAttribute("disabled", "true"));

@@ -15,35 +15,35 @@ export class Task {
         this.formatDate = `${month}/${day}/${year}`;
     }
 
-    set editTitle(title) {
-        this.title = title;
-        return this.title;
-    }
+    // set editTitle(title) {
+    //     this.title = title;
+    //     return this.title;
+    // }
 
-    set editDescription(description) {
-        this.description = description;
-        return this.description;
-    }
+    // set editDescription(description) {
+    //     this.description = description;
+    //     return this.description;
+    // }
 
-    set editDueDate(dueDate) {
-        this.dueDate = dueDate;
-        return this.dueDate;
-    }
+    // set editDueDate(dueDate) {
+    //     this.dueDate = dueDate;
+    //     return this.dueDate;
+    // }
 
-    set editFormatDate(dueDate) {
-        this.dueDate = dueDate;
-        const dateComponents = dueDate.split("-");
-        const year = dateComponents[0];
-        const month = dateComponents[1];
-        const day = dateComponents[2];
-        this.formatDate = `${month}/${day}/${year}`;
-        return this.formatDate;
-    }
+    // set editFormatDate(dueDate) {
+    //     this.dueDate = dueDate;
+    //     const dateComponents = dueDate.split("-");
+    //     const year = dateComponents[0];
+    //     const month = dateComponents[1];
+    //     const day = dateComponents[2];
+    //     this.formatDate = `${month}/${day}/${year}`;
+    //     return this.formatDate;
+    // }
 
-    set editPriority(priority) {
-        this.priority = priority;
-        return this.priority;
-    }
+    // set editPriority(priority) {
+    //     this.priority = priority;
+    //     return this.priority;
+    // }
 
     editChecked() {
         return this.checked = !this.checked;

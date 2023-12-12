@@ -90,7 +90,10 @@ export default function pushTasks(task) {
             function removeTask(button) {
                 button.parentNode.parentNode.removeChild(button.parentNode);
             }
+            
             removeTask(deleteTask);
+
+            localStorage.setItem("projectArray", JSON.stringify(projectArray));
         }
 
         mainPanelDiv.insertBefore(taskDiv, taskButton);

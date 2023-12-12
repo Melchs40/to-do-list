@@ -2,6 +2,7 @@ import { mainPanelDiv } from ".";
 import createTask from "./new-create-task";
 import editTask from "./new-edit-task";
 import displayTask from "./display-full-task";
+import { projectArray } from ".";
 
 //creates the task button
 export const taskButton = document.createElement("button");
@@ -111,6 +112,8 @@ export default function openProject(project) {
             }
 
             removeTask(deleteTask);
+
+            localStorage.setItem("projectArray", JSON.stringify(projectArray));
         }
 
         mainPanelDiv.appendChild(taskDiv)
@@ -136,7 +139,7 @@ export default function openProject(project) {
 
         console.log("task button press");
 
-        createTask(project.taskList);
+        createTask(project.taskList, project);
       }
 
 }

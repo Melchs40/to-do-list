@@ -80,6 +80,8 @@ export default function pushProjects(project) {
               mainPanelDiv.removeChild(mainPanelDiv.firstChild);
             }
         };
+
+        localStorage.setItem("projectArray", JSON.stringify(projectArray));
     }
 
     function addOpenClass() {

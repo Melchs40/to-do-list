@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 body {
+    background-color: #457B9D;
     font-family: 'Josefin Sans', sans-serif;
 }
 
 
 #content {
-    background-color: #f6f7fb;
+    background-color: #457B9D;
     height: 100%;
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    min-width: 900px;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 300px minmax(750px, 1fr);
     grid-template-rows: 50px 500px 25px;
 }
 
 button {
     appearance: none;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 3px;
     background-color: #edf2fb;
 }
 
@@ -39,7 +41,8 @@ dialog {
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-    background-color: white;
+    color: white;
+    background-color: #1D3557;
 }
 
 #side-panel {
@@ -47,13 +50,18 @@ dialog {
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
-    border: 1px solid black;
-    background-color: #e2eafc;
+    background-color: white;
 }
 
     #home-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
         background-color: white;
     }
+
 
     #projects-section {
         position: relative;
@@ -62,18 +70,23 @@ dialog {
         background-color: white;
     }
 
+        #projects-title {
+            font-size: 20px;
+            padding-left: 5px;
+        }
+
         #project-container {
             overflow: auto;
             scrollbar-width:thin;
             background-color: lightgreen;
-            max-height: 400px;
+            max-height: 375px;
         }
 
             .project {
                 margin-bottom: 3px;
                 border-top: .5px solid black;
                 border-bottom: .5px solid black;
-                background-color: #d7e3fc;
+                background-color: #F1FAEE;
                 display: grid;
                 grid-template-columns: 200px 30px 30px;
                 align-items: center;
@@ -93,7 +106,7 @@ dialog {
             }
 
             .open-project {
-                background-color: #c1d3fe;
+                background-color: #A8DADC;
             }
 
         #project-button {
@@ -122,7 +135,7 @@ dialog {
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-color: white;
+    background-color: #A8DADC;
 }
 
 #main-panel-div {
@@ -141,12 +154,23 @@ footer {
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
-    background-color: purple;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1D3557;
 }
 
 .task-div {
     display: grid;
-    grid-template-columns: 120px 1fr 1fr 120px 120px 120px;
+    grid-template-columns: 80px minmax(100px, 1fr) minmax(100px, 200px) 80px 80px 80px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.due-date-div {
+    padding-left: 30px;
 }
 
 .edit-task-button, .priority-div, .delete-task-button {
@@ -160,7 +184,7 @@ footer {
 }
 
 .important > .priority-div {
-    color: red;
+    color: #E63946;
 }
 
 .checked {
@@ -172,7 +196,25 @@ footer {
     content: ""; /* Generate content for pseudo-element */
     position: absolute;
     width: 100%;
-    border: 1px solid black; /* Adjust border-width and color as needed */
+    border: 1px solid #F1FAEE; /* Adjust border-width and color as needed */
     top: 50%; /* Vertically align the line-through */
     left: 0; /* Horizontally align the line-through */
   }
+
+.full-task-dialog {
+    min-height: 250px;
+    width: 250px;
+}
+
+.full-task-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+.project > :first-child {
+    display: flex;
+    align-items: center;
+    height: 30px;
+}

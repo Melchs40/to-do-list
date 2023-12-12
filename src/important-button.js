@@ -1,5 +1,6 @@
 import editTask from "./new-edit-task";
 import { mainPanelDiv } from ".";
+import displayTask from "./display-full-task";
 
 export default function importantButton(projectArray) {
 
@@ -8,6 +9,11 @@ export default function importantButton(projectArray) {
           mainPanelDiv.removeChild(mainPanelDiv.firstChild);
         }
     };
+
+    let projects = document.querySelectorAll(".open-project");
+    projects.forEach(project => {
+        project.classList.remove("open-project");
+    });
 
     for(let i = 0; i < projectArray.length; i++) {
         let project = projectArray[i];
@@ -105,6 +111,8 @@ export default function importantButton(projectArray) {
                     }
 
                     removeTask(deleteTask);
+
+                    localStorage.setItem("projectArray", JSON.stringify(projectArray));
                 }
 
                 mainPanelDiv.appendChild(taskDiv)

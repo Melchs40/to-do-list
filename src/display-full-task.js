@@ -30,7 +30,9 @@ export default function displayTask(task) {
     dialogForm.appendChild(datePara);
 
     const dateInput = document.createElement("p");
-    dateInput.innerHTML = task.dueDate;
+    if (task.dueDate == "") {
+        dateInput.innerHTML = "No due date"
+    } else dateInput.innerHTML = task.formatDate;
     dialogForm.appendChild(dateInput);
 
     const priorityPara = document.createElement("p");
@@ -38,10 +40,13 @@ export default function displayTask(task) {
     dialogForm.appendChild(priorityPara);
 
     const priorityInput = document.createElement("p");
-    priorityInput.innerHTML= task.priority;
+    if (task.priority == true) {
+        priorityInput.innerHTML= "Important";
+    } else priorityInput.innerHTML = "Not Important";
     dialogForm.appendChild(priorityInput);
 
     const formCancel = document.createElement("button");
+    formCancel.classList.add("full-task-button");
     formCancel.innerHTML = "X";
     dialogForm.appendChild(formCancel);
     formCancel.onclick = () => {
