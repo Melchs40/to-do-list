@@ -11,6 +11,8 @@ export default function displayTask(task) {
 
     const titlePara = document.createElement("p");
     titlePara.innerHTML = "Name:";
+    titlePara.style.fontSize = "120%";
+    titlePara.style.fontWeight = "bold";
     dialogForm.appendChild(titlePara);
 
     const titleInput = document.createElement("p");
@@ -19,14 +21,20 @@ export default function displayTask(task) {
 
     const descriptPara = document.createElement("p");
     descriptPara.innerHTML = "Description:";
+    descriptPara.style.fontSize = "120%";
+    descriptPara.style.fontWeight = "bold";
     dialogForm.appendChild(descriptPara);
 
     const descriptInput = document.createElement("p");
-    descriptInput.innerHTML = task.description;
+    if (task.description == "") {
+        descriptInput.innerHTML = "No description provided"
+    } else descriptInput.innerHTML = task.description;
     dialogForm.appendChild(descriptInput);
 
     const datePara = document.createElement("p");
     datePara.innerHTML = "Due date:";
+    datePara.style.fontSize = "120%";
+    datePara.style.fontWeight = "bold";
     dialogForm.appendChild(datePara);
 
     const dateInput = document.createElement("p");
@@ -37,6 +45,8 @@ export default function displayTask(task) {
 
     const priorityPara = document.createElement("p");
     priorityPara.innerHTML = "Priority:";
+    priorityPara.style.fontSize = "120%";
+    priorityPara.style.fontWeight = "bold";
     dialogForm.appendChild(priorityPara);
 
     const priorityInput = document.createElement("p");

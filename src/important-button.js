@@ -41,9 +41,11 @@ export default function importantButton(projectArray) {
                         titleDiv.classList.add("checked"),
                         dueDateDiv.classList.add("checked"),
                         priorityDiv.classList.add("checked");
+                        localStorage.setItem("projectArray", JSON.stringify(projectArray));
                     } else titleDiv.classList.remove("checked"),
                         dueDateDiv.classList.remove("checked"),
                         priorityDiv.classList.remove("checked");
+                        localStorage.setItem("projectArray", JSON.stringify(projectArray));
                 }
 
                 let titleDiv = document.createElement("div");

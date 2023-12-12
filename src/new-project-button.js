@@ -37,9 +37,11 @@ export default function openProject(project) {
                 titleDiv.classList.add("checked"),
                 dueDateDiv.classList.add("checked"),
                 priorityDiv.classList.add("checked");
+                localStorage.setItem("projectArray", JSON.stringify(projectArray));
             } else titleDiv.classList.remove("checked"),
                 dueDateDiv.classList.remove("checked"),
                 priorityDiv.classList.remove("checked");
+                localStorage.setItem("projectArray", JSON.stringify(projectArray));
         }
 
         let titleDiv = document.createElement("div");
@@ -128,7 +130,8 @@ export default function openProject(project) {
     taskButton.setAttribute("class", "task-button");
     taskButton.classList.add("button");
     taskButton.setAttribute("id", "task-button");
-    taskButton.innerHTML = "+ Add task";
+    taskButton.setAttribute("class", "material-symbols-outlined")
+    taskButton.innerHTML = "library_add";
     mainPanelDiv.appendChild(taskButton);
 
     taskButton.onclick = () => {
